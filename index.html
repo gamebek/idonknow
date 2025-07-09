@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leni Photograph - Mana Suraa Leenii</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8B5CF6;
+            --primary-dark: #7C3AED;
+            --secondary: #F59E0B;
+            --accent: #EC4899;
+            --dark: #1F2937;
+            --light: #F9FAFB;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%), 
+                        url('https://images.unsplash.com/photo-1529635760837-60a810a7fba0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, #FFFFFF 0%, #F9FAFB 100%);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .team-member {
+            transition: all 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(139, 92, 246, 0.3);
+        }
+        
+        .btn-secondary {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(245, 158, 11, 0.3);
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50 backdrop-blur-sm bg-opacity-80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-camera text-2xl text-purple-600"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Leni Photograph</h1>
+                        <p class="text-xs text-gray-500">Mana Suraa Leenii</p>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Home</a>
+                    <a href="#services" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Services</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900 font-medium">About</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900 font-medium">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-600 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg h-screen flex items-center justify-center text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="text-center relative z-10 px-4">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6 animate-fade-in">Leni Photograph</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto animate-fade-in delay-100">Capturing Your Precious Moments with <span class="text-yellow-300">Mana Suraa Leenii</span></p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in delay-200">
+                <a href="#contact" class="btn-primary text-white px-8 py-3 rounded-full font-semibold inline-block">
+                    <i class="fas fa-calendar-check mr-2"></i> Book Now
+                </a>
+                <a href="#services" class="btn-secondary border-2 border-yellow-400 text-yellow-400 px-8 py-3 rounded-full font-semibold inline-block hover:bg-yellow-400 hover:text-white">
+                    <i class="fas fa-list-alt mr-2"></i> Our Services
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4 section-title">Our Services</h2>
+            <p class="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">We offer professional photography services to capture your most precious moments with creativity and passion.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Wedding Photography -->
+                <div class="service-card p-8">
+                    <div class="text-purple-600 text-4xl mb-4">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Wedding Photography</h3>
+                    <p class="text-gray-600">Capture the magic of your special day with stunning, timeless photos that you'll cherish forever.</p>
+                </div>
+                
+                <!-- Birthday Photography -->
+                <div class="service-card p-8">
+                    <div class="text-yellow-500 text-4xl mb-4">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Birthday Photography</h3>
+                    <p class="text-gray-600">Celebrate your milestones with vibrant and joyful photographs that capture the essence of your special day.</p>
+                </div>
+                
+                <!-- Baby Shower Photography -->
+                <div class="service-card p-8">
+                    <div class="text-pink-500 text-4xl mb-4">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Baby Shower Photography</h3>
+                    <p class="text-gray-600">Document the joy of welcoming a new life with heartwarming images that tell your unique story.</p>
+                </div>
+                
+                <!-- Event Photography -->
+                <div class="service-card p-8">
+                    <div class="text-blue-500 text-4xl mb-4">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Event Photography</h3>
+                    <p class="text-gray-600">Professional coverage for all your corporate or social events, capturing every important moment.</p>
+                </div>
+                
+                <!-- Lamination & Printing -->
+                <div class="service-card p-8">
+                    <div class="text-green-500 text-4xl mb-4">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">Lamination & Printing</h3>
+                    <p class="text-gray-600">High-quality prints and laminates to preserve your memories in the best possible way.</p>
+                </div>
+                
+                <!-- National ID Printing -->
+                <div class="service-card p-8">
+                    <div class="text-red-500 text-4xl mb-4">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-gray-800">National ID Printing</h3>
+                    <p class="text-gray-600">Fast and reliable ID photo printing services with professional quality and quick turnaround.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4 section-title">About Us</h2>
+            <p class="text-lg text-gray-600 text-center mb-12 max-w-4xl mx-auto">
+                Leni Photograph (Mana Suraa Leenii) is dedicated to capturing life's most precious moments with artistry and professionalism. 
+                Our team combines technical expertise with creative vision to deliver photographs that tell your unique story.
+            </p>
+            
+            <div class="bg-white rounded-2xl shadow-lg p-8 mb-12">
+                <p class="text-gray-700 text-center text-lg">
+                    "We believe every moment has a story worth telling. Our passion is to transform your special occasions into 
+                    timeless memories through our lens."
+                </p>
+            </div>
+            
+            <h3 class="text-2xl font-semibold text-center text-gray-800 mb-8">Meet Our Team</h3>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- CEO -->
+                <div class="team-member bg-white rounded-xl shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-4xl text-purple-600"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Bayisa Bekana</h4>
+                    <p class="text-purple-600 font-medium mb-3">CEO & Founder</p>
+                    <p class="text-gray-600 text-sm">With over 10 years of experience, Bayisa leads our team with vision and creativity.</p>
+                </div>
+                
+                <!-- Photographer 1 -->
+                <div class="team-member bg-white rounded-xl shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-camera text-4xl text-blue-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Melkamu Gizawu</h4>
+                    <p class="text-blue-500 font-medium mb-3">Lead Photographer</p>
+                    <p class="text-gray-600 text-sm">Specializing in portrait and event photography with a keen eye for detail.</p>
+                </div>
+                
+                <!-- Photographer 2 -->
+                <div class="team-member bg-white rounded-xl shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-pink-100 flex items-center justify-center">
+                        <i class="fas fa-camera-retro text-4xl text-pink-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Leta Temesgen</h4>
+                    <p class="text-pink-500 font-medium mb-3">Photographer</p>
+                    <p class="text-gray-600 text-sm">Expert in capturing natural, candid moments with artistic composition.</p>
+                </div>
+                
+                <!-- Photographer 3 -->
+                <div class="team-member bg-white rounded-xl shadow-md overflow-hidden text-center p-6">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-yellow-100 flex items-center justify-center">
+                        <i class="fas fa-id-card text-4xl text-yellow-500"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-800">Lense Tefera</h4>
+                    <p class="text-yellow-500 font-medium mb-3">Print Specialist</p>
+                    <p class="text-gray-600 text-sm">Ensures your photos are printed with the highest quality and precision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4 section-title">Contact Us</h2>
+            <p class="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+                Ready to book your session or have questions? Reach out to us today!
+            </p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl p-8 shadow-inner">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Get In Touch</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-purple-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Phone Numbers</h4>
+                                <p class="text-gray-600">
+                                    <a href="tel:+251930819233" class="hover:text-purple-600 transition">+251 930 819 233</a><br>
+                                    <a href="tel:+251907564375" class="hover:text-purple-600 transition">+251 907 564 375</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-blue-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Studio Address</h4>
+                                <p class="text-gray-600">Gelan City Central, Ethiopia</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-yellow-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-yellow-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Email Address</h4>
+                                <p class="text-gray-600">
+                                    <a href="mailto:info@leniphotograph.com" class="hover:text-purple-600 transition">info@leniphotograph.com</a>
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-pink-100 p-3 rounded-full mr-4">
+                                <i class="fas fa-clock text-pink-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-gray-800">Working Hours</h4>
+                                <p class="text-gray-600">Monday - Saturday: 8:00 AM - 8:00 PM<br>Sunday: 10:00 AM - 4:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-medium text-gray-800 mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-purple-100 hover:text-purple-600 transition">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-blue-100 hover:text-blue-500 transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-pink-100 hover:text-pink-600 transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="bg-gray-100 p-3 rounded-full text-gray-700 hover:bg-red-100 hover:text-red-600 transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send Us a Message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your name">
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your email">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your phone number">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-gray-700 mb-1">Service Interested In</label>
+                            <select id="service" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                                <option value="">Select a service</option>
+                                <option value="wedding">Wedding Photography</option>
+                                <option value="birthday">Birthday Photography</option>
+                                <option value="baby">Baby Shower Photography</option>
+                                <option value="event">Event Photography</option>
+                                <option value="printing">Printing Services</option>
+                                <option value="id">ID Photo Printing</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Your Message</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Enter your message"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-purple-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-purple-700 hover:to-purple-600 transition shadow-md">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fas fa-camera mr-2 text-purple-400"></i> Leni Photograph
+                    </h3>
+                    <p class="text-gray-400 text-sm">Mana Suraa Leenii - Capturing your precious moments with professional excellence.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">Services</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Wedding Photography</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Event Coverage</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Printing Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">ID Photo Printing</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 text-sm mb-3">Subscribe to get updates on our latest offers and events.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-3 py-2 rounded-l-lg text-gray-800 w-full focus:outline-none">
+                        <button type="submit" class="bg-purple-600 px-4 py-2 rounded-r-lg hover:bg-purple-700 transition">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Leni Photograph (Mana Suraa Leenii). All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">
+                        <i class="fab fa-telegram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle would go here
+        // For a complete implementation, you would add JavaScript to handle the mobile menu toggle
+    </script>
+</body>
+</html>
